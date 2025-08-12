@@ -16,12 +16,12 @@ export default function ProductCard({
 
   return (
     <div
-      className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-120 cursor-pointer"
+      className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition duration-200 hover:scale-120 cursor-pointer"
       onClick={() => openProductDetailPage(product.id)}
     >
-      <div className="relative w-full h-64 mb-4">
+      <div className="relative w-full h-64">
         <img
-          src={product.image}
+          src={product.img[0]}
           alt={product.name}
           className="object-contain w-full h-full rounded-lg"
           // onError={(e) => {
@@ -33,13 +33,11 @@ export default function ProductCard({
         />
       </div>
       <div className="w-full text-left mt-4">
-        <h3 className="font-bold text-lg mb-1">{product.name}</h3>
-        <p className="text-gray-600 text-sm">{product.description}</p>
-      </div>
-      <div className="w-full text-right mt-2">
-        <span className="text-xl font-semibold text-gray-800">
-          ${product.price}
-        </span>
+        <div className="flex items-center justify-between">
+          <h3 className="font-bold text-lg mb-1">{product.name}</h3>
+          <h3 className="font-bold text-lg mb-1">${product.price}</h3>
+        </div>
+        <p className="text-gray-600 text-sm">{product.shortDesc}</p>
       </div>
     </div>
   );
