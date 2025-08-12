@@ -4,10 +4,8 @@ export default function Payment() {
   return (
     <div className="min-h-screen p-8 flex justify-center">
       <div className="flex flex-col lg:flex-row max-w-4xl mx-auto w-full bg-white">
-        {/* Left Section: Order Summary */}
         <div className="lg:w-1/2 p-8 flex flex-col">
           <div className="flex items-center space-x-3 mb-8">
-            {/* SVG for the coffee cup icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -59,7 +57,6 @@ export default function Payment() {
           </div>
         </div>
 
-        {/* Right Section: Payment Form */}
         <div className="lg:w-1/2 p-8">
           <h2 className="text-xl font-bold mb-6">Pay with PayNow</h2>
 
@@ -108,7 +105,6 @@ export default function Payment() {
                 POSB, OCBC, UOB and GrabPay.
               </p>
               <div className="flex items-center space-x-3 text-gray-500 text-sm">
-                {/* SVG for the QR code icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

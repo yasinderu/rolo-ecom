@@ -24,12 +24,6 @@ export default function ProductCard({
           src={product.img[0]}
           alt={product.name}
           className="object-contain w-full h-full rounded-lg"
-          // onError={(e) => {
-          //   const target = e.target as HTMLImageElement;
-          //   target.src =
-          //     "https://placehold.co/400x400/cccccc/000000?text=Image+Not+Found";
-          //   console.error("Image failed to load");
-          // }}
         />
       </div>
       <div className="w-full text-left mt-4">

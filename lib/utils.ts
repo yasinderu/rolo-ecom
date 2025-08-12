@@ -1,5 +1,3 @@
-// import { cartItems } from "@/data";
-
 import { CartItem } from "@/types";
 
 export const calculateTotal = (cartItems: CartItem[]): number => {

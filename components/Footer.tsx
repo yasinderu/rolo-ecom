@@ -11,6 +11,8 @@ interface FooterProps {
   proceedBtnText: string;
   productDetail?: Product;
   handleNextAction?: () => void;
+  disableNextButton?: boolean;
+  isCheckout?: boolean;
 }
 
 export default function Footer({
@@ -20,6 +22,8 @@ export default function Footer({
   proceedBtnText,
   productDetail,
   handleNextAction,
+  disableNextButton = false,
+  isCheckout = false,
 }: FooterProps) {
   const router = useRouter();
   const onNext = () => {
@@ -34,6 +38,7 @@ export default function Footer({
         <button
           className="px-4 py-2 text-[#5F5F5F] bg-[#F4F4F4] rounded-[4px] flex items-center space-x-2"
           onClick={() => router.push(previousUrl)}
+          type="button"
         >
           <ChevronLeft />
           <span>Back</span>
@@ -46,8 +51,14 @@ export default function Footer({
             ${productDetail ? productDetail.price : total}
           </span>
           <button
-            className="px-6 py-2 text-white bg-[#748067] rounded-[4px] flex flex-row gap-2"
-            onClick={() => onNext()}
+            className={`px-6 py-2  ${
+              disableNextButton
+                ? "bg-[#F4F4F4] text-[#5F5F5F]"
+                : "bg-[#748067] text-white"
+            } rounded-[4px] flex flex-row gap-2`}
+            onClick={isCheckout ? undefined : () => onNext()}
+            disabled={disableNextButton}
+            type="submit"
           >
             {proceedBtnText}
             <ChevronRight />
