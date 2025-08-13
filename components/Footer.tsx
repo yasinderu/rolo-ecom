@@ -36,7 +36,7 @@ export default function Footer({
     <footer className="fixed bottom-0 left-0 right-0 bg-white shadow-lg py-4 px-8 border-t border-gray-200">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <button
-          className="px-4 py-2 text-[#5F5F5F] bg-[#F4F4F4] rounded-[4px] flex items-center space-x-2"
+          className="px-4 py-2 cursor-pointer text-[#5F5F5F] bg-[#F4F4F4] rounded-[4px] flex items-center space-x-2 hover:bg-gray-200"
           onClick={() => router.push(previousUrl)}
           type="button"
         >
@@ -51,10 +51,10 @@ export default function Footer({
             ${productDetail ? productDetail.price : total}
           </span>
           <button
-            className={`px-6 py-2  ${
+            className={`px-6 py-2 cursor-pointer ${
               disableNextButton
                 ? "bg-[#F4F4F4] text-[#5F5F5F]"
-                : "bg-[#748067] text-white"
+                : "bg-[#748067] text-white hover:bg-green-800"
             } rounded-[4px] flex flex-row gap-2`}
             onClick={isCheckout ? undefined : () => onNext()}
             disabled={disableNextButton}

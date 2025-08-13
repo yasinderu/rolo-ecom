@@ -17,7 +17,7 @@ export default function ProductWrapper({ product }: ProductWrapperProps) {
   const [selectedColor, setSelectedColor] = useState<string>(
     product.colors[0].value
   );
-  const { addToCart, cart } = useCart();
+  const { addToCart } = useCart();
   const handleSelectImage = (index: number) => {
     setSelectedImage(index);
 
@@ -33,6 +33,8 @@ export default function ProductWrapper({ product }: ProductWrapperProps) {
 
     if (product.id === 1 && color === product.colors[1].value) {
       setSelectedImage(1);
+    } else {
+      setSelectedImage(0);
     }
   };
 

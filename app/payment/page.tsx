@@ -1,6 +1,32 @@
-import { order } from "@/data";
+"use client";
+
+import PayButton from "@/components/payment/PayButton";
+import { useCart } from "@/contexts/cartContext";
+import { calculateTotal } from "@/lib/utils";
+import { CartItem } from "@/types";
+import { useState } from "react";
+// import { order } from "@/data";
 
 export default function Payment() {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const { cart } = useCart();
+
+  const total = calculateTotal(cart);
+
+  const order = {
+    lineItems: cart.map((item: CartItem) => {
+      return {
+        name: item.name,
+        price: item.price,
+        currency: "USD",
+        quantity: item.quantity,
+      };
+    }),
+    total: total,
+    subtotal: total,
+    currency: "USD",
+  };
   return (
     <div className="min-h-screen p-8 flex justify-center">
       <div className="flex flex-col lg:flex-row max-w-4xl mx-auto w-full bg-white">
@@ -21,22 +47,29 @@ export default function Payment() {
               />
             </svg>
             <span className="font-semibold text-lg text-gray-800">
-              {order.name}
+              Coffee Brewer
             </span>
           </div>
 
-          <h2 className="text-xl font-bold mb-1">Pay {order.name}</h2>
+          <h2 className="text-xl font-bold mb-1">Pay Rolo Ecom</h2>
           <span className="text-3xl font-bold text-gray-800 mb-6">
-            {order.currency} {order.price.toFixed(2)}
+            {order.currency} {order.total.toFixed(2)}
           </span>
 
           <div className="space-y-4">
-            <div className="flex justify-between items-center text-gray-600 border-b border-gray-200 pb-2">
-              <span>{order.product}</span>
-              <span>
-                {order.currency} {order.price.toFixed(2)}
-              </span>
-            </div>
+            {order.lineItems.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex justify-between items-center text-gray-600 border-b border-gray-200 pb-2"
+              >
+                <span>
+                  {item.name} x {item.quantity}
+                </span>
+                <span>
+                  {item.currency} {item.price.toFixed(2)}
+                </span>
+              </div>
+            ))}
             <div className="flex justify-between items-center text-gray-600 border-b border-gray-200 pb-2">
               <span>Subtotal</span>
               <span>
@@ -72,6 +105,8 @@ export default function Payment() {
                 type="email"
                 id="email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="email@example.com"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
               />
@@ -87,6 +122,8 @@ export default function Payment() {
                 type="text"
                 id="name"
                 name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
               />
             </div>
@@ -127,9 +164,7 @@ export default function Payment() {
             </div>
           </div>
 
-          <button className="w-full px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold mb-4">
-            Pay
-          </button>
+          <PayButton />
           <div className="flex justify-center space-x-2 text-gray-400 text-xs">
             <span>
               Powered by{" "}

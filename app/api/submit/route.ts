@@ -1,10 +1,8 @@
-// app/api/submit/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { JWT } from "google-auth-library";
 import { formSchema } from "@/lib/validations";
 
-// Config for the service account
 const serviceAccountAuth = new JWT({
   email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
   key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
@@ -14,7 +12,6 @@ const serviceAccountAuth = new JWT({
   ],
 });
 
-// ID of the Google Sheet
 const doc = new GoogleSpreadsheet(
   process.env.GOOGLE_SHEET_ID!,
   serviceAccountAuth

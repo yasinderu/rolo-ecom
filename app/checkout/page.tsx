@@ -14,6 +14,7 @@ export default function Checkout() {
   const { cart } = useCart();
   const total = calculateTotal(cart);
   const router = useRouter();
+  const googleSheetFlag = process.env.NEXT_PUBLIC_GOOGLE_SHEET_FLAG;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState<{
     message: string;
@@ -37,7 +38,7 @@ export default function Checkout() {
   };
 
   const onSubmit = async (data: FormData) => {
-    if (isSaveToGoogleSheet) {
+    if (isSaveToGoogleSheet || googleSheetFlag === "true") {
       setIsSubmitting(true);
       setSubmissionStatus(null);
 
@@ -86,7 +87,8 @@ export default function Checkout() {
       <main className="flex-grow max-w-2xl mx-auto w-full bg-white p-8">
         <div className="flex items-center justify-between mb-6 pb-4">
           <h1 className="text-2xl font-bold tracking-wide">Your Details</h1>
-          <Toggle isOn={isSaveToGoogleSheet} handleToggle={handleToggle} />
+          {/* Below toggle is a helper element to use google sheet for saving the customer data. Uncomment it if you want to use it. */}
+          {/* <Toggle isOn={isSaveToGoogleSheet} handleToggle={handleToggle} /> */}
         </div>
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col md:flex-row gap-6 border-b border-gray-200 pb-8">

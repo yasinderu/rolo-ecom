@@ -8,13 +8,7 @@ export const products: Product[] = [
       "The best-selling, home espresso machine, with a built-in grinder",
     price: 798,
     oldPrice: 998,
-    img: [
-      "https://placehold.co/400x400/E0E0E0/36454F?text=Product+1",
-      "https://placehold.co/400x400/E0E0E0/36454F?text=Product+2",
-      "https://placehold.co/400x400/E0E0E0/36454F?text=Product+3",
-      "https://placehold.co/400x400/E0E0E0/36454F?text=Product+4",
-      "https://placehold.co/400x400/E0E0E0/36454F?text=Product+5",
-    ],
+    img: ["/p1/1.png", "/p1/2.png", "/p1/3.png", "/p1/4.png", "/p1/5.png"],
     longDesc: [
       "One of the world’s popular and well-recommended espresso machines for home use, the Barista Express is perfect for anyone wanting to get into coffee.",
       "This semi-automatic machine balances simplicity and flexibility. With automated, low pressure pre-infusion and shot timers, you can pull espresso at just the press of a button. Hone your skills tamping, and experimenting with various beans, doses and grind sizes.",
@@ -41,7 +35,7 @@ export const products: Product[] = [
     name: "the Bambino",
     shortDesc: "The best value for money, standalone espresso machine",
     price: 498,
-    img: ["https://placehold.co/400x400/E0E0E0/36454F?text=Product+2"],
+    img: ["/p2/1.png", "/p2/2.png", "/p2/3.png", "/p2/4.png"],
     longDesc: [
       "The Breville Bambino is one of the best, entry-level espresso machines to brew café, specialty coffee from home.",
       "With its small, compact profile, the Bambino is perfect for budding enthusiasts, letting you step up and pair this with a grinder of your choice.",
@@ -62,7 +56,7 @@ export const products: Product[] = [
     name: "the Bambino Plus",
     shortDesc: "Everything in the Bambino, plus automatic milk frothing",
     price: 598,
-    img: ["https://placehold.co/400x400/E0E0E0/36454F?text=Product+3"],
+    img: ["/p3/1.png", "/p3/2.png", "/p3/3.png", "/p3/4.png"],
     longDesc: [
       "The Breville Bambino is already one of the best, entry-level espresso machines to brew café, specialty coffee from home.",
       "The Bambino Plus takes that even further, giving you more simplicity with automatic milk frothing, to elevate your lattes and cappuccinos.",
@@ -85,7 +79,7 @@ export const products: Product[] = [
     shortDesc:
       "Top of the line Dual Boiler performance with touch screen usability.",
     price: 3988,
-    img: ["https://placehold.co/400x400/E0E0E0/36454F?text=Product+4"],
+    img: ["/p4/1.png", "/p4/2.png", "/p4/3.png", "/p4/4.png"],
     longDesc: [
       "The Oracle Touch is the pinnacle of Breville’s espresso machines.",
       "This semi-automatic machine balances simplicity and flexibility. With automated, low pressure pre-infusion and shot timers, you can pull espresso at just the press of a button. Hone your skills tamping, and experimenting with various beans, doses and grind sizes.",
@@ -103,83 +97,6 @@ export const products: Product[] = [
       "Maintenance Kit – cleaning brushes, Allen keys, cleaning disc, steam wand pin",
       "1 Descaling Dose, Steam Wand Cleaner and 2 Cleaning Tablets",
     ],
-    colors: [
-      { name: "Stainless Steel", value: "#F0F0F0" },
-      { name: "Black", value: "#242424" },
-    ],
+    colors: [{ name: "Stainless Steel", value: "#F0F0F0" }],
   },
 ];
-
-export const productDetailExe = {
-  id: 1,
-  name: "the Barista Express",
-  shortDescription:
-    "The best-selling, home espresso machine, with a built-in grinder",
-  price: 798,
-  oldPrice: 998,
-  largeImage: "https://placehold.co/800x800/E0E0E0/36454F?text=Main+Product",
-  thumbnails: [
-    "https://placehold.co/200x200/E0E0E0/36454F?text=Thumb+1",
-    "https://placehold.co/200x200/E0E0E0/36454F?text=Thumb+2",
-    "https://placehold.co/200x200/E0E0E0/36454F?text=Thumb+3",
-    "https://placehold.co/200x200/E0E0E0/36454F?text=Thumb+4",
-    "https://placehold.co/200x200/E0E0E0/36454F?text=Thumb+5",
-  ],
-  colors: [
-    { name: "Stainless Steel", value: "#F0F0F0" },
-    { name: "Black", value: "#242424" },
-  ],
-  longDescription: [
-    "One of the world's popular and well-recommended espresso machines for home use, the Barista Express is perfect for anyone wanting to get into coffee.",
-    "This semi-automatic machine balances simplicity and flexibility. With automated, low pressure pre-infusion and shot timers, you can pull espresso at just the press of a button. Hone your skills tamping, and experimenting with various beans, doses and grind sizes.",
-  ],
-};
-
-export const productThumbnails = [
-  {
-    id: 1,
-    thumbnails: [
-      "https://placehold.co/200x200/E0E0E0/36454F?text=Thumb+1",
-      "https://placehold.co/200x200/E0E0E0/36454F?text=Thumb+2",
-      "https://placehold.co/200x200/E0E0E0/36454F?text=Thumb+3",
-      "https://placehold.co/200x200/E0E0E0/36454F?text=Thumb+4",
-      "https://placehold.co/200x200/E0E0E0/36454F?text=Thumb+5",
-    ],
-  },
-];
-
-export const cartItems = [
-  {
-    id: 1,
-    name: "the Barista Express",
-    color: "Truffle Black",
-    price: 798,
-    quantity: 1,
-    image: "https://placehold.co/100x100/E0E0E0/36454F?text=Item+1",
-  },
-  {
-    id: 2,
-    name: "the Barista Express",
-    color: "Stainless Steel",
-    price: 798,
-    quantity: 1,
-    image: "https://placehold.co/100x100/E0E0E0/36454F?text=Item+2",
-  },
-  {
-    id: 3,
-    name: "the Bambino",
-    color: "Stainless Steel",
-    price: 498,
-    quantity: 2,
-    image: "https://placehold.co/100x100/E0E0E0/36454F?text=Item+3",
-  },
-];
-
-export const order = {
-  name: "Gobi Coffee",
-  product: "Cold Brew",
-  price: 4.0,
-  currency: "SGD",
-  subtotal: 4.0,
-  total: 4.0,
-};

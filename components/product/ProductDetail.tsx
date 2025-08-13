@@ -12,7 +12,7 @@ export default function ProductDetail({
   handleColorChange,
 }: ProductDetailProps) {
   return (
-    <div className="lg:w-1/2 flex flex-col overflow-y-auto h-screen">
+    <div className="lg:w-[60%] flex flex-col overflow-y-auto h-screen">
       <div className="text-sm text-gray-500 mb-6">
         Machines & Equipment &gt;&gt; Breville
       </div>

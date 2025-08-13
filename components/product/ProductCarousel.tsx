@@ -1,8 +1,6 @@
 "use client";
 
-import { productThumbnails } from "@/data";
 import { Product } from "@/types";
-import { useState } from "react";
 
 interface ProductCarouselProps {
   product: Product;
@@ -16,7 +14,7 @@ export default function ProductCarousel({
   selectedImage,
 }: ProductCarouselProps) {
   return (
-    <div className="lg:w-1/2 flex flex-col items-center">
+    <div className="lg:w-[40%] flex flex-col items-center">
       <div className="bg-white rounded-xl shadow-lg p-6 mb-4">
         <img
           src={product.img[selectedImage]}
@@ -25,7 +23,7 @@ export default function ProductCarousel({
         />
       </div>
       <div className="flex flex-wrap justify-center gap-4">
-        {productThumbnails[0].thumbnails.map((thumb, index) => (
+        {product.img.map((thumb, index) => (
           <div
             key={index}
             className={`w-20 h-20 bg-white rounded-lg shadow-md p-2 cursor-pointer ${

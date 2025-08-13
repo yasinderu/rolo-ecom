@@ -16,9 +16,7 @@ export default function Header({
   const router = useRouter();
   return (
     <header className="flex justify-between items-center max-w-7xl mx-auto py-8">
-      <div className="text-2xl font-bold tracking-widest text-gray-800">
-        ROLO
-      </div>
+      <img src="/rolo.png" alt="rolo logo" />
       <div className="flex items-center space-x-4">
         <div className="relative">
           <input
