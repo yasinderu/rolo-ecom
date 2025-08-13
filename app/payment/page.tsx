@@ -5,7 +5,6 @@ import { useCart } from "@/contexts/cartContext";
 import { calculateTotal } from "@/lib/utils";
 import { CartItem } from "@/types";
 import { useState } from "react";
-// import { order } from "@/data";
 
 export default function Payment() {
   const [name, setName] = useState<string>("");

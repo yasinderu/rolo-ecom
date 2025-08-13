@@ -24,13 +24,11 @@ export default function PayButton() {
 
       const lineItems = [...cart];
 
-      // Send a request to our backend to create a checkout session
       const res = await fetch("/api/checkout_sessions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        // You can pass any product data here
         body: JSON.stringify({ lineItems: lineItems }),
       });
 
@@ -40,13 +38,11 @@ export default function PayButton() {
 
       const session = await res.json();
 
-      // Redirect to Stripe Checkout
       const result = await stripe.redirectToCheckout({
         sessionId: session.id,
       });
 
       if (result.error) {
-        // If `redirectToCheckout` fails, display the error to your customer.
         alert(result.error.message);
       }
     } catch (error) {

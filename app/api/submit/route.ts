@@ -21,11 +21,9 @@ export async function POST(req: NextRequest) {
   try {
     const formData = await req.json();
 
-    // 1. Validate the data from the client
     const validatedData = formSchema.safeParse(formData);
 
     if (!validatedData.success) {
-      // If validation fails, return a 400 error with the issues
       return NextResponse.json(
         {
           error: "Validation failed",
@@ -35,11 +33,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 2. Load the Google Sheet
     await doc.loadInfo();
-    const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsByTitle['YourSheetName']
+    const sheet = doc.sheetsByIndex[0];
 
-    // 3. Append the validated data as a new row
     const { name, email, streetAddress, houseNumber, postalCode } =
       validatedData.data;
     const timestamp = new Date().toISOString();
@@ -48,12 +44,11 @@ export async function POST(req: NextRequest) {
       name,
       email,
       streetAddress,
-      houseNumber: houseNumber || "", // Ensure it's not undefined
+      houseNumber: houseNumber || "",
       postalCode,
       timestamp,
     });
 
-    // 4. Return a success response
     return NextResponse.json(
       { message: "Form submitted successfully!" },
       { status: 201 }
@@ -61,7 +56,6 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error("Error submitting form:", error);
 
-    // 5. Handle potential errors (e.g., Google API issues)
     return NextResponse.json(
       { error: "An internal server error occurred. Please try again later." },
       { status: 500 }

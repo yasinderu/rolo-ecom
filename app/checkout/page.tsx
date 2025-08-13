@@ -54,12 +54,7 @@ export default function Checkout() {
         const result = await response.json();
 
         if (!response.ok) {
-          // throw new Error(result.error || "Something went wrong");
-
-          setSubmissionStatus({
-            message: result.error,
-            isError: true,
-          });
+          throw new Error(result.error || "Something went wrong");
         }
 
         setSubmissionStatus({

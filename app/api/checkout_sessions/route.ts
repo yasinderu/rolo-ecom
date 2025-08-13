@@ -9,8 +9,6 @@ export async function POST(req: NextRequest) {
     if (!lineItems) {
       return NextResponse.json({ error: "Missing item" }, { status: 400 });
     }
-
-    // Define success and cancel URLs
     const successUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`;
     const cancelUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/cancel`;
 
@@ -26,8 +24,6 @@ export async function POST(req: NextRequest) {
         quantity: item.quantity,
       };
     });
-
-    // Create a Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: line_items,
@@ -36,7 +32,6 @@ export async function POST(req: NextRequest) {
       cancel_url: cancelUrl,
     });
 
-    // Return the session ID to the frontend
     return NextResponse.json({ id: session.id });
   } catch (error) {
     console.error("Error creating checkout session:", error);
